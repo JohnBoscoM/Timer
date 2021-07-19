@@ -21,19 +21,19 @@ class NeuDigitalClock extends StatelessWidget {
     return Container(
       height: 145,
       decoration: BoxDecoration(
-        color: Color.fromRGBO(217, 230, 243, 1),
+        // color: Colors.white,
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
-          BoxShadow(
-            blurRadius: 15,
-            offset: Offset(-5, -5),
-            color: Colors.white,
-          ),
-          BoxShadow(
-            blurRadius: 15,
-            offset: Offset(10.5, 10.5),
-            color: Color.fromRGBO(214, 223, 230, 1),
-          )
+          // BoxShadow(
+          //   blurRadius: 15,
+          //   offset: Offset(-5, -5),
+          //   color: Colors.white,
+          // ),
+          // BoxShadow(
+          //   blurRadius: 15,
+          //   offset: Offset(10.5, 10.5),
+          //   color: Color.fromRGBO(214, 223, 230, 1),
+          // )
         ],
       ),
       // Digital green background

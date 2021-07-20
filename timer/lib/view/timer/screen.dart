@@ -9,57 +9,56 @@ import 'package:provider/provider.dart';
 class TimerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     final timeService = TimerService();
     return ChangeNotifierProvider<TimerService>(
       create: (_) => timeService,
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          leading: Icon(
-            Icons.menu,
-            size: 30,
-            color: Colors.grey.shade900,
-          ),
           elevation: 2,
           backgroundColor: Colors.white,
           centerTitle: true,
           title: Text(
             "Timer",
-            style: GoogleFonts.roboto(
+            style: GoogleFonts.manrope(
                 fontSize: 25,
                 color: Colors.grey.shade900,
                 fontWeight: FontWeight.w500),
           ),
+          actions: [
+            Icon(
+              Icons.more_vert,
+              size: 30,
+              color: Colors.grey.shade900,
+            ),
+          ],
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 35.0),
+          padding: const EdgeInsets.symmetric(horizontal: 0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
+              Padding(
+                  padding: EdgeInsets.only(left: 30, right: 20, top: 25),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [])),
+              // Switch(value: true, onChanged: (value) {}),
               //SizedBox(height: MediaQuery.of(context).viewPadding.top + 20),
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.black12,
-                    borderRadius: BorderRadius.all(Radius.circular(20))),
-                child: ListTile(
-                  leading: Icon(Icons.music_note),
-                  title: const Text('Golden Roses'),
-                  subtitle: Text(
-                    'Rick Ross ft Drake',
-                    style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                  ),
-                  trailing: Icon(
-                    Icons.volume_up,
-                    size: 35,
-                  ),
-                ),
-              ),
-              SizedBox(height: 20),
-              NeuDigitalClock(
-                key: null,
-              ),
-              SizedBox(height: 20),
-              SizedBox(height: 25),
+              Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 35),
+                  child: Column(
+                    children: [
+                      Text("Round 1",
+                          style: GoogleFonts.rajdhani(fontSize: 23)),
+                      NeuDigitalClock(
+                        key: null,
+                      ),
+                    ],
+                  )),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -86,12 +85,44 @@ class TimerScreen extends StatelessWidget {
                   ),
                 ],
               ),
+
               SizedBox(height: 20),
-              Text(
-                "v.100.1",
-                style: GoogleFonts.actor(
-                    color: Colors.grey.shade500, fontSize: 19),
+              Container(
+                decoration: BoxDecoration(
+                    border:
+                        Border(top: BorderSide(color: Colors.grey.shade300))),
+                width: width,
+                child: ListTile(
+                  leading: Container(
+                    width: 100,
+                    // height: 150,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(0)),
+                        image: DecorationImage(
+                            image: AssetImage("images/golden_roses.jpeg"))),
+                  ),
+                  title: Text(
+                    'Golden Roses',
+                    style: GoogleFonts.actor(
+                        color: Colors.black.withOpacity(0.6),
+                        fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text(
+                    'Rick Ross ft Drake',
+                    style:
+                        GoogleFonts.actor(color: Colors.black.withOpacity(0.6)),
+                  ),
+                  trailing: Icon(
+                    CupertinoIcons.volume_up,
+                    size: 35,
+                  ),
+                ),
               )
+              // Text(
+              //   "v.100.1",
+              //   style: GoogleFonts.actor(
+              //       color: Colors.grey.shade500, fontSize: 19),
+              // )
             ],
           ),
         ),

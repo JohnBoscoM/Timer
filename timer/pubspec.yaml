@@ -29,7 +29,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   google_fonts: ^2.1.0
+ # spotify_sdk: ^2.1.0
   provider: any
+  
   transparent_image: ^1.0.0
   math_expressions: ^2.0.0
 
@@ -53,7 +55,7 @@ flutter:
     - home.png
     - images/jump.png
     - images/poly_run_color.jpeg
-    - images/poly_run_grey.jpeg
+    - images/golden_roses.jpeg
     
   
 

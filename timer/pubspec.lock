@@ -83,6 +83,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_snake_navigationbar:
+    dependency: "direct main"
+    description:
+      name: flutter_snake_navigationbar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -109,6 +116,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.0"
+  json_annotation:
+    dependency: transitive
+    description:
+      name: json_annotation
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.1"
   matcher:
     dependency: transitive
     description:
@@ -137,6 +151,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  oauth2:
+    dependency: transitive
+    description:
+      name: oauth2
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   path:
     dependency: transitive
     description:
@@ -226,6 +247,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.1"
+  spotify:
+    dependency: "direct main"
+    description:
+      name: spotify
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.6.0"
   stack_trace:
     dependency: transitive
     description:

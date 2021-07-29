@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
@@ -6,17 +8,40 @@ import 'package:timer/view/timer/digital_font/digital_colon.dart';
 
 import 'digital_font/digital_number.dart';
 
-class NeuDigitalClock extends StatelessWidget {
+class NeuDigitalClock extends StatefulWidget {
   const NeuDigitalClock({
     required Key? key,
   }) : super(key: key);
+  @override
+  _NeuDigitalClockState createState() => _NeuDigitalClockState();
+}
+
+class _NeuDigitalClockState extends State<NeuDigitalClock> {
+  static const duration = const Duration(seconds: 1);
+
+  int secondsPassed = 0;
+  bool isActive = false;
+
+  late Timer timer;
+
+  void handleTick() {
+    if (isActive) {
+      setState(() {
+        secondsPassed = secondsPassed + 1;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    final currentDuration = Provider.of<TimerService>(context).currentDuration;
-    final seconds = currentDuration.inSeconds;
-    final minutes = currentDuration.inMinutes;
-    final hours = currentDuration.inHours;
+    if (timer == null) {
+      timer = Timer.periodic(duration, (Timer t) {
+        handleTick();
+      });
+    }
+    int seconds = secondsPassed % 60;
+    int minutes = secondsPassed ~/ 60;
+    int hours = secondsPassed ~/ (60 * 60);
     // Outer white container
     return Container(
       height: 145,
@@ -91,7 +116,6 @@ class DigitalClock extends StatelessWidget {
     List<DigitalNumberWithBG> secondNumber = createNumberTime(seconds);
     return Center(
       child: Container(
-        // color: Colors.green,
         height: height * 0.47,
         width: width * 0.70,
         child: Row(

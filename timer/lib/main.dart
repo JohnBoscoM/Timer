@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
 import 'package:timer/service/timer_service.dart';
+import 'package:timer/view/navigationbar.dart';
 import 'package:timer/view/timer/screen.dart';
 import 'package:timer/view/timer_page.dart';
+import 'package:timer/view/timer_settings/timer_settings.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,6 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      darkTheme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -29,7 +32,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
       ),
       home: ChangeNotifierProvider(
-          create: (context) => TimerService(), child: TimerScreen()),
+          create: (context) => TimerService(), child: NavigationPage()),
     );
   }
 }

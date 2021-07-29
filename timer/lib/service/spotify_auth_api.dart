@@ -1,7 +1,7 @@
 import 'package:spotify/spotify.dart';
 
-var clientId = 'f32f690d9c4b4d03bb7916788b7b8ce6';
-var clientSecret = 'a8fc5ccda29e4cdbb4a958429444e75e';
+var clientId = '';
+var clientSecret = '';
 Future<SpotifyApi> getSpotifyApi() async {
   final credentials = SpotifyApiCredentials(clientId, clientSecret);
   final grant = SpotifyApi.authorizationCodeGrant(credentials);
